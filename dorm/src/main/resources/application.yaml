@@ -1,0 +1,47 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+  rabbitmq:
+    host: 175.178.162.60
+    username: rabbitmq
+    password: 12300aaa
+    virtual-host: /
+    port: 5673
+    listener:
+      simple:
+        auto-startup: true
+        default-requeue-rejected: true
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000ms
+        max-attempts: 2
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smart_dorm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+    #连接池
+    hikari:
+      pool-name: hikariPool
+      minimum-idle: 5
+      idle-timeout: 1800000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+      auto-commit: true
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  file:
+    name: seckill.log
+    path: ./logs
+  level:
+    cn.edu.xmu.seckill.mapper: debug

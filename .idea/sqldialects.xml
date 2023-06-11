@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/dorm/src/main/java/cn/edu/xmu/dorm/mapper/PowerConsumptionPoMapper.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/dorm/src/main/java/cn/edu/xmu/dorm/mapper/SensorPoMapper.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/dorm/src/main/java/cn/edu/xmu/dorm/mapper/TotalPowerPoMapper.java" dialect="GenericSQL" />
+  </component>
+</project>
