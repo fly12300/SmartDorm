@@ -45,3 +45,4 @@ logging:
     path: ./logs
   level:
     cn.edu.xmu.seckill.mapper: debug
+debug: true

@@ -49,8 +49,8 @@ public class PowerService implements IPowerService {
     }
 
     @Override
-    public ReturnObject getOneDevicePowerConsumeByMonth(Long deviceId, LocalDate date) {
-        List<PowerDayVo> pos = totalPowerPoMapper.findByDormIdAndAndCountTime(deviceId,
+    public ReturnObject getOneDevicePowerConsumeByMonth(Long userId, LocalDate date) {
+        List<PowerDayVo> pos = totalPowerPoMapper.findByDormIdAndAndCountTime(userId,
                         String.format("%d-%02d", date.getYear(), date.getMonthValue())).stream()
                 .sorted((o1, o2) -> o1.getCountTime().before(o2.getCountTime()) ? 0 : 1)
                 .map(this::getPowerDayVo)

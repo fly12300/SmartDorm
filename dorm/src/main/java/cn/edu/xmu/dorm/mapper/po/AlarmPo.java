@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -24,7 +25,7 @@ public class AlarmPo {
     private String alarmMsg;
     @Basic
     @Column(name = "alarm_time")
-    private Timestamp alarmTime;
+    private Date alarmTime;
 
     public long getId() {
         return id;
@@ -50,11 +51,11 @@ public class AlarmPo {
         this.alarmMsg = alarmMsg;
     }
 
-    public Timestamp getAlarmTime() {
+    public Date getAlarmTime() {
         return alarmTime;
     }
 
-    public void setAlarmTime(Timestamp alarmTime) {
+    public void setAlarmTime(Date alarmTime) {
         this.alarmTime = alarmTime;
     }
 

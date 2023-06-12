@@ -50,7 +50,7 @@ public class PowerController {
     @ResponseBody
     public ReturnObject getPowerByMonth(@userLoginCheck UserVo user, @RequestBody @Valid Time time) {
         logger.info("查询日期{}",LocalDate.parse(time.getTime()));
-        return powerService.getPowerConsumeByDay(user.getUserId(), LocalDate.parse(time.getTime()));
+        return powerService.getOneDevicePowerConsumeByMonth(user.getUserId(), LocalDate.parse(time.getTime()));
     }
 
 }

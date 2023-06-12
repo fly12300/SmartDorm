@@ -1,6 +1,7 @@
 package cn.edu.xmu.dorm.service.imp;
 
 
+import cn.edu.xmu.dorm.controller.vo.AlarmVo;
 import cn.edu.xmu.dorm.controller.vo.RoomVo;
 import cn.edu.xmu.dorm.controller.vo.ChartDataVo;
 import cn.edu.xmu.dorm.exception.DormException;
@@ -77,7 +78,13 @@ public class RoomService implements IRoomService {
 
     @Override
     public ReturnObject getRoomAlarm(Long userId) {
-        List<AlarmPo> alarmPos = alarmPoMapper.findAllByDormId(userId);
-        return new ReturnObject(ReturnNo.SUCCESS,alarmPos);
+        List<AlarmVo> alarmVos = alarmPoMapper.findAllByDormId(userId).stream()
+                .map(this::getVo).collect(Collectors.toList());
+        return new ReturnObject(ReturnNo.SUCCESS,alarmVos);
+    }
+    private AlarmVo getVo(AlarmPo po){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = formatter.format(po.getAlarmTime());
+        return new AlarmVo(po.getAlarmMsg(), format);
     }
 }
